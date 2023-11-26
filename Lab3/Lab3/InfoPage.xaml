@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab3.InfoPage"
+             Title="Інформація про програму"
+             BackgroundColor="#E8DFDF">
+
+    <VerticalStackLayout Spacing="60">
+
+        <Label 
+            Text="Лабораторна робота №3"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="Medium" />
+
+        <Label 
+            Text="Студент: Єленін Єгор Андрійович"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="Medium"/>
+
+        <Label 
+            Text="Курс: 2"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="Medium"/>
+
+        <Label 
+            Text="Група: К-27"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="Medium"/>
+
+        <Label 
+            Text="Рік: 2023"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="Medium"/>
+
+        <Label 
+            Text="Опис: це програма для роботи з даними у JSON файлах у вигляді таблиці"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" 
+            FontSize="Medium"/>
+
+    </VerticalStackLayout>
+    
+</ContentPage>

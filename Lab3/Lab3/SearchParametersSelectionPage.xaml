@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab3.SearchParametersSelectionPage"
+             Title="Оберіть параметри пошуку"
+             BackgroundColor="#E8DFDF">
+    
+    <VerticalStackLayout>
+
+        <Entry Placeholder="Назва" 
+               x:Name="NameEntry"/>
+
+        <Entry Placeholder="Анотація"
+               x:Name="AnnotationEntry"/>
+
+        <Entry Placeholder="Тип"
+               x:Name="TypeEntry"/>
+
+        <Entry Placeholder="Версія"
+               x:Name="VersionEntry"/>
+
+        <Entry Placeholder="Автор"
+               x:Name="AuthorEntry"/>
+
+        <Entry Placeholder="Умови використання"
+               x:Name="TermsOfUsageEntry"/>
+
+        <Entry Placeholder="Місце запису дистрибутиву" 
+               x:Name="DistributiveLocationEntry"/>
+
+        <Button Text="Шукати"
+                Clicked="SearchBtnClicked"/>
+
+    </VerticalStackLayout>
+    
+</ContentPage>

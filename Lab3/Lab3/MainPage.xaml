@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab3.MainPage">
+
+    <ScrollView>
+        
+        <AbsoluteLayout BackgroundColor="#E8DFDF">
+
+            <ScrollView 
+                AbsoluteLayout.LayoutBounds="0.85,0.15,0.6,0.9"
+                AbsoluteLayout.LayoutFlags="All" 
+                VerticalOptions="FillAndExpand"
+                Orientation="Both">
+
+                <Grid x:Name="ListGrid"
+                    BackgroundColor="#B29C9C">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="200" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <Frame 
+                        Grid.Column="0"
+                        Grid.Row="0"
+                        BackgroundColor="#B9B9B9">
+                        
+                        <Label 
+                            Text="Номер"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+                        
+                    </Frame>
+
+                    <Frame 
+                        Grid.Column="1"
+                        Grid.Row="0"
+                        BackgroundColor="#B9B9B9">
+
+                        <Label 
+                            Text="Назва"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+
+                    </Frame>
+
+                    <Frame 
+                        Grid.Column="2"
+                        Grid.Row="0"
+                        BackgroundColor="#B9B9B9">
+
+                        <Label 
+                            Text="Анотація"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+
+                    </Frame>
+
+                    <Frame 
+                        Grid.Column="3"
+                        Grid.Row="0"
+                        BackgroundColor="#B9B9B9">
+
+                        <Label 
+                            Text="Вид"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+
+                    </Frame>
+
+                    <Frame 
+                        Grid.Column="4"
+                        Grid.Row="0"
+                        BackgroundColor="#B9B9B9">
+
+                        <Label 
+                            Text="Версія"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+
+                    </Frame>
+
+                    <Frame 
+                        Grid.Column="5"
+                        Grid.Row="0"
+                        BackgroundColor="#B9B9B9">
+
+                        <Label 
+                            Text="Автор"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+
+                    </Frame>
+
+                    <Frame 
+                        Grid.Column="6"
+                        Grid.Row="0"
+                        BackgroundColor="#B9B9B9">
+
+                        <Label 
+                            Text="Умови використання"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+
+                    </Frame>
+
+                    <Frame 
+                        Grid.Column="7"
+                        Grid.Row="0"
+                        BackgroundColor="#B9B9B9">
+
+                        <Label 
+                            Text="Місце запису дистрибутиву"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center" />
+
+                    </Frame>
+
+                </Grid>
+
+            </ScrollView>
+
+            <Label 
+                    Text="Шлях до файлу" 
+                    AbsoluteLayout.LayoutBounds="0.05,0.05,0.2,0.5"
+                    AbsoluteLayout.LayoutFlags="All" />
+
+            <Frame 
+                BorderColor="#000000"
+                BackgroundColor="#E8DFDF"
+                AbsoluteLayout.LayoutBounds="0.04,0.05,0.3,0.07"
+                AbsoluteLayout.LayoutFlags="All">
+
+                <Label x:Name="FileNameEntry"/>
+
+            </Frame>
+
+            <Button x:Name="OpenBtn"
+                Text="Відкрити JSON файл" 
+                    AbsoluteLayout.LayoutBounds="0.1,0.15,0.20,0.1"
+                    AbsoluteLayout.LayoutFlags="All" 
+                    BackgroundColor="#B29C9C" 
+                    BorderColor="#000000" 
+                    TextColor="#000000"
+                    Clicked="OpenJSONBtnClick"/>
+
+            <Button x:Name="EditListBtn"
+                Text="Редагувати список" 
+                    AbsoluteLayout.LayoutBounds="0.1,0.3,0.20,0.1"
+                    AbsoluteLayout.LayoutFlags="All" 
+                    BackgroundColor="#B29C9C"  
+                    BorderColor="#000000" 
+                    TextColor="#000000"
+                    Clicked="EditListBtnClicked"/>
+
+            <Button x:Name="FindBtn"
+                Text="Пошук" 
+                    AbsoluteLayout.LayoutBounds="0.1,0.45,0.20,0.1"
+                    AbsoluteLayout.LayoutFlags="All" 
+                    BackgroundColor="#B29C9C"  
+                    BorderColor="#000000" 
+                    TextColor="#000000"/>
+
+            <Button x:Name="SaveResultBtn"
+                Text="Зберегти" 
+                    AbsoluteLayout.LayoutBounds="0.1,0.6,0.20,0.1"
+                    AbsoluteLayout.LayoutFlags="All" 
+                    BackgroundColor="#B29C9C" 
+                    BorderColor="#000000" 
+                    TextColor="#000000"/>
+
+            <Button x:Name="SaveResultAsBtn"
+                Text="Зберегти як..." 
+                    AbsoluteLayout.LayoutBounds="0.1,0.75,0.20,0.1"
+                    AbsoluteLayout.LayoutFlags="All"
+                    BackgroundColor="#B29C9C" 
+                    BorderColor="#000000" 
+                    TextColor="#000000"/>
+
+            <Button x:Name="ShowProgrammInfoBtn"
+                Text="Інформація про програму" 
+                    AbsoluteLayout.LayoutBounds="0.1,0.9,0.20,0.1"
+                    AbsoluteLayout.LayoutFlags="All" 
+                    BackgroundColor="#B29C9C"  
+                    BorderColor="#000000" 
+                    TextColor="#000000"
+                    Clicked="ShowProgrammInfoBtnClick"/>
+
+        </AbsoluteLayout>
+        
+    </ScrollView>
+
+</ContentPage>
