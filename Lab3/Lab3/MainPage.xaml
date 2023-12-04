@@ -14,7 +14,8 @@
                 Orientation="Both">
 
                 <Grid x:Name="ListGrid"
-                    BackgroundColor="#B29C9C">
+                    BackgroundColor="#B29C9C" 
+                    IsEnabled="True">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200" />
                         <ColumnDefinition Width="200" />
@@ -137,7 +138,7 @@
             </ScrollView>
 
             <Label 
-                    Text="Шлях до файлу" 
+                    Text="Ім'я файлу" 
                     AbsoluteLayout.LayoutBounds="0.05,0.05,0.2,0.5"
                     AbsoluteLayout.LayoutFlags="All" />
 
@@ -147,7 +148,8 @@
                 AbsoluteLayout.LayoutBounds="0.04,0.05,0.3,0.07"
                 AbsoluteLayout.LayoutFlags="All">
 
-                <Label x:Name="FileNameEntry"/>
+                <Label x:Name="FileNameEntry"
+                       Text="Файл не вибрано"/>
 
             </Frame>
 
@@ -160,14 +162,14 @@
                     TextColor="#000000"
                     Clicked="OpenJSONBtnClick"/>
 
-            <Button x:Name="EditListBtn"
-                Text="Редагувати список" 
+            <Button x:Name="AddToListBtn"
+                Text="Додати елемент" 
                     AbsoluteLayout.LayoutBounds="0.1,0.3,0.20,0.1"
                     AbsoluteLayout.LayoutFlags="All" 
                     BackgroundColor="#B29C9C"  
                     BorderColor="#000000" 
                     TextColor="#000000"
-                    Clicked="EditListBtnClicked"/>
+                    Clicked="AddToListBtnClicked"/>
 
             <Button x:Name="FindBtn"
                 Text="Пошук" 
@@ -175,7 +177,8 @@
                     AbsoluteLayout.LayoutFlags="All" 
                     BackgroundColor="#B29C9C"  
                     BorderColor="#000000" 
-                    TextColor="#000000"/>
+                    TextColor="#000000"
+                    Clicked="SearchBtnClicked"/>
 
             <Button x:Name="SaveResultBtn"
                 Text="Зберегти" 
@@ -183,7 +186,9 @@
                     AbsoluteLayout.LayoutFlags="All" 
                     BackgroundColor="#B29C9C" 
                     BorderColor="#000000" 
-                    TextColor="#000000"/>
+                    TextColor="#000000"
+                    IsEnabled="False"
+                    Clicked="SaveBtnClicked"/>
 
             <Button x:Name="SaveResultAsBtn"
                 Text="Зберегти як..." 
@@ -191,7 +196,8 @@
                     AbsoluteLayout.LayoutFlags="All"
                     BackgroundColor="#B29C9C" 
                     BorderColor="#000000" 
-                    TextColor="#000000"/>
+                    TextColor="#000000"
+                    Clicked="SaveAsBtnClicked"/>
 
             <Button x:Name="ShowProgrammInfoBtn"
                 Text="Інформація про програму" 

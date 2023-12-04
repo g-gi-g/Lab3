@@ -1,29 +1,24 @@
-﻿using System.Reflection;
+﻿using System.Dynamic;
+using System.Reflection;
 
 namespace Lab3;
 
 public partial class MainPage : ContentPage
-{ 
-    private MainPageController controller;
-
-    private List<Software> listOfSoftware;
-
+{
     private string filePath;
 
-	public MainPage()
-	{
-		InitializeComponent();
-
-        controller = new MainPageController();
+    public MainPage()
+    {
+        InitializeComponent();
     }
 
-	private void ShowProgrammInfoBtnClick(object sender, EventArgs e)
-	{
-		Navigation.PushAsync(new InfoPage());
-	}
+    private void ShowProgrammInfoBtnClick(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new InfoPage());
+    }
 
-	private async void OpenJSONBtnClick(object sender, EventArgs e)
-	{
+    private async void OpenJSONBtnClick(object sender, EventArgs e)
+    {
         try
         {
             var result = await FilePicker.Default.PickAsync();
@@ -38,13 +33,17 @@ public partial class MainPage : ContentPage
 
             FileResult JSONFile = result;
 
-            listOfSoftware = controller.Deserialize(JSONFile);
+            SoftwareRepository softwareListRepository = SoftwareRepository.GetInstance();
 
-            UpdateGrid();
+            softwareListRepository.SetList(JSONSerializer.DeserializeJSON(JSONFile.FullPath));
+
+            await UpdateGrid();
 
             FileNameEntry.Text = result.FileName;
 
             filePath = result.FullPath;
+
+            SaveResultBtn.IsEnabled = true;
         }
 
         catch (Exception ex)
@@ -53,33 +52,121 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private void EditListBtnClicked(object sender, EventArgs e)
+    private async void AddToListBtnClicked(object sender, EventArgs e)
     {
+        try
+        {
+            var addSoftwarePage = new AddSoftwarePage();
 
+            addSoftwarePage.NavigatingFrom += async (s, args) =>
+            {
+                await UpdateGrid();
+            };
+
+            await Navigation.PushAsync(addSoftwarePage);
+        }
+
+        catch (Exception ex)
+        {
+            await DisplayAlert("Попередження", string.Format("Виникла наступна помилка: {0}", ex.Message), "Ок");
+        }
     }
 
-    private void SearchBtnClicked(object sender, EventArgs e)
+    private async void SearchBtnClicked(object sender, EventArgs e)
     {
+        try
+        {
+            var searchParametersSelectionPage = new SearchParametersSelectionPage();
 
+            searchParametersSelectionPage.NavigatingFrom += async (s, args) =>
+            {
+                await UpdateGrid();
+            };
 
-        listOfSoftware = controller.Search();
+            await Navigation.PushAsync(searchParametersSelectionPage);
+        }
 
-        UpdateGrid();
+        catch (Exception ex)
+        {
+            await DisplayAlert("Попередження", string.Format("Виникла наступна помилка: {0}", ex.Message), "Ок");
+        }
     }
 
-    private void UpdateGrid()
+    private async void SaveBtnClicked(object sender, EventArgs e)
     {
+        try
+        {
+            SoftwareRepository softwareListRepository = SoftwareRepository.GetInstance();
+
+            JSONSerializer.SerializeJSON(softwareListRepository.GetAll(), filePath);
+        }
+
+        catch (Exception ex)
+        {
+            await DisplayAlert("Попередження", string.Format("Виникла наступна помилка: {0}", ex.Message), "Ок");
+        }
+    }
+
+    private async void SaveAsBtnClicked(object sender, EventArgs e)
+    {
+        try
+        {
+            SoftwareRepository softwareListRepository = SoftwareRepository.GetInstance();
+
+            var result = await FilePicker.Default.PickAsync();
+
+            JSONSerializer.SerializeJSON(softwareListRepository.GetAll(), result.FullPath);
+
+            filePath = result.FullPath;
+
+            FileNameEntry.Text = result.FileName;
+
+            SaveResultBtn.IsEnabled = true;
+        }
+
+        catch (Exception ex)
+        {
+            await DisplayAlert("Попередження", string.Format("Виникла наступна помилка: {0}", ex.Message), "Ок");
+        }
+    }
+
+    private async void ChangeInfo(dynamic elementInfo)
+    {
+        await Navigation.PushAsync(new ChangeParameterPage(elementInfo.btn, 
+            elementInfo.elementID, elementInfo.propertyID));
+    }
+
+    private async void DeleteSoftware(int index)
+    {
+        SoftwareRepository softwareListRepository = SoftwareRepository.GetInstance();
+
+        softwareListRepository.DeleteById(index);
+
+        await UpdateGrid();
+    }
+    
+    private async Task UpdateGrid()
+    {
+        var childrenToRemove = new List<IView>();
+
         foreach (var child in ListGrid.Children)
         {
             if (ListGrid.GetRow(child) != 0)
             {
-                ListGrid.Children.Remove(child);
+                childrenToRemove.Add(child);
             }
+        }
+
+        foreach (var child in childrenToRemove)
+        {
+            ListGrid.Children.Remove(child);
         }
 
         int rowNumber = 1;
 
-        foreach (Software software in listOfSoftware) 
+        SoftwareRepository softwareListRepository = SoftwareRepository.GetInstance();
+
+        foreach (Software software in softwareListRepository.GetAll()) 
         {
             if (rowNumber >= ListGrid.RowDefinitions.Count)
             {
@@ -88,11 +175,15 @@ public partial class MainPage : ContentPage
 
             int columnNumber = 1;
 
-            Frame rowNumberGridCell = new Frame
+            Button rowNumberGridCell = new Button
             {
-                Content = new Label { Text = rowNumber.ToString() },
-                BackgroundColor = new Color(0.9f, 0.9f, 0.9f)
+                BackgroundColor = new Color(0.9f, 0.9f, 0.9f),
+                Text = rowNumber.ToString(),
+                TextColor = Color.FromArgb("#000000"),
+                Command = new Command<int>((index) => DeleteSoftware(index - 1))
             };
+
+            rowNumberGridCell.CommandParameter = rowNumber;
 
             ListGrid.SetRow(rowNumberGridCell, rowNumber);
             ListGrid.SetColumn(rowNumberGridCell, 0);
@@ -105,11 +196,21 @@ public partial class MainPage : ContentPage
 
             foreach (PropertyInfo property in properties)
             {
-                Frame newGridCell = new Frame
+                Button newGridCell = new Button
                 {
-                    Content = new Label { Text = (string)property.GetValue(software) },
-                    BackgroundColor = new Color(0.9f, 0.9f, 0.9f)
+                    BackgroundColor = new Color(0.9f, 0.9f, 0.9f),
+                    Text = (string)property.GetValue(software),
+                    TextColor = Color.FromArgb("#000000"),
+                    Command = new Command<dynamic>((par) => ChangeInfo(par))
                 };
+
+                dynamic commandParameter = new ExpandoObject();
+                commandParameter.btn = newGridCell;
+                commandParameter.elementID = rowNumber - 1;
+                commandParameter.propertyID = columnNumber - 1;
+
+
+                newGridCell.CommandParameter = commandParameter;
 
                 ListGrid.SetRow(newGridCell, rowNumber);
                 ListGrid.SetColumn(newGridCell, columnNumber);

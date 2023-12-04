@@ -49,7 +49,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="AddSoftwarePage.xaml.cs">
+	    <DependentUpon>AddSoftwarePage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="SearchParametersSelectionPage.xaml.cs">
+	    <DependentUpon>SearchParametersSelectionPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="ChangeParameterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="InfoPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="AddSoftwarePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="SearchParametersSelectionPage.xaml">

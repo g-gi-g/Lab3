@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab3.ChangeParameterPage"
+             Title="Введіть нові дані">
+    
+    <VerticalStackLayout
+        Padding="100"
+        Spacing="20"
+        BackgroundColor="#E8DFDF">
+        
+        <Entry x:Name="Entry"
+               Placeholder="Нове значення параметру" 
+               PlaceholderColor="#000000"
+               BackgroundColor="#FFFFFF"/>
+
+        <Button Text="Ок" 
+                Clicked="BtnClicked"
+                BackgroundColor="#B29C9C" 
+                TextColor="#000000"
+                BorderColor="#000000"/>
+        
+    </VerticalStackLayout>
+</ContentPage>

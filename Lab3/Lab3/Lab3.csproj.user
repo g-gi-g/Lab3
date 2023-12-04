@@ -6,7 +6,13 @@
     <ActiveDebugProfile>Windows Machine</ActiveDebugProfile>
   </PropertyGroup>
   <ItemGroup>
+    <MauiXaml Update="ChangeParameterPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="InfoPage.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
+    <MauiXaml Update="AddSoftwarePage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
     <MauiXaml Update="SearchParametersSelectionPage.xaml">

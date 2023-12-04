@@ -29,13 +29,13 @@
     <AppXManifest Include="C:\Users\Егор\Desktop\ООП\Lab 3\Lab3\Lab3\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2023-11-26T00:29:53.588</Modified>
+      <Modified>2023-12-04T00:09:00.170</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Егор\Desktop\ООП\Lab 3\Lab3\Lab3\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2023-11-26T00:07:09.215</Modified>
+      <Modified>2023-12-03T23:17:04.611</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Егор\Desktop\ООП\Lab 3\Lab3\Lab3\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Lab3.runtimeconfig.json">
       <PackagePath>Lab3.runtimeconfig.json</PackagePath>
@@ -43,15 +43,15 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Егор\Desktop\ООП\Lab 3\Lab3\Lab3\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Lab3.dll">
       <PackagePath>Lab3.dll</PackagePath>
-      <Modified>2023-11-26T00:29:52.148</Modified>
+      <Modified>2023-12-04T00:08:58.336</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Егор\Desktop\ООП\Lab 3\Lab3\Lab3\obj\Debug\net6.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>Lab3.exe</PackagePath>
-      <Modified>2023-11-26T00:29:52.227</Modified>
+      <Modified>2023-12-04T00:08:58.419</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Егор\Desktop\ООП\Lab 3\Lab3\Lab3\bin\Debug\net6.0-windows10.0.19041.0\win10-x64\Lab3.deps.json">
       <PackagePath>Lab3.deps.json</PackagePath>
-      <Modified>2023-11-19T21:24:38.734</Modified>
+      <Modified>2023-12-03T17:14:11.170</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Егор\.nuget\packages\microsoft.netcore.app.runtime.win-x64\6.0.23\runtimes\win-x64\lib\net6.0\Microsoft.CSharp.dll">
       <PackagePath>Microsoft.CSharp.dll</PackagePath>

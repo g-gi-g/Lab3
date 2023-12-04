@@ -2,34 +2,54 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Lab3.SearchParametersSelectionPage"
-             Title="Оберіть параметри пошуку"
-             BackgroundColor="#E8DFDF">
+             Title="Оберіть параметри об'єкту">
     
-    <VerticalStackLayout>
+    <VerticalStackLayout 
+        Padding="100"
+        Spacing="20"
+        BackgroundColor="#E8DFDF">
 
-        <Entry Placeholder="Назва" 
-               x:Name="NameEntry"/>
+        <Entry Placeholder="Назва"
+               x:Name="NameEntry" 
+               PlaceholderColor="#000000"
+               BackgroundColor="#FFFFFF"/>
 
         <Entry Placeholder="Анотація"
-               x:Name="AnnotationEntry"/>
+               x:Name="AnnotationEntry"
+               PlaceholderColor="#000000"
+               BackgroundColor="#FFFFFF"/>
 
         <Entry Placeholder="Тип"
-               x:Name="TypeEntry"/>
+               x:Name="TypeEntry"
+               PlaceholderColor="#000000"
+               BackgroundColor="#FFFFFF"/>
 
         <Entry Placeholder="Версія"
-               x:Name="VersionEntry"/>
+               x:Name="VersionEntry"
+               PlaceholderColor="#000000"
+               BackgroundColor="#FFFFFF"/>
 
         <Entry Placeholder="Автор"
-               x:Name="AuthorEntry"/>
+               x:Name="AuthorEntry"
+               PlaceholderColor="#000000"
+               BackgroundColor="#FFFFFF"/>
 
         <Entry Placeholder="Умови використання"
-               x:Name="TermsOfUsageEntry"/>
+               x:Name="TermsOfUsageEntry"
+               PlaceholderColor="#000000"
+               BackgroundColor="#FFFFFF"/>
 
         <Entry Placeholder="Місце запису дистрибутиву" 
-               x:Name="DistributiveLocationEntry"/>
+               x:Name="DistributiveLocationEntry"
+               PlaceholderColor="#000000"
+               BackgroundColor="#FFFFFF"/>
 
-        <Button Text="Шукати"
-                Clicked="SearchBtnClicked"/>
+        <Button x:Name="button"
+                Text="Пошук"
+                Clicked="BtnClicked"
+                BackgroundColor="#B29C9C" 
+                TextColor="#000000"
+                BorderColor="#000000"/>
 
     </VerticalStackLayout>
     

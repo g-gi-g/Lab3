@@ -5,7 +5,9 @@
              Title="Інформація про програму"
              BackgroundColor="#E8DFDF">
 
-    <VerticalStackLayout Spacing="60">
+    <VerticalStackLayout 
+        Padding="100"
+        Spacing="60">
 
         <Label 
             Text="Лабораторна робота №3"

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Lab3.AddSoftwarePage"
+             Title="Оберіть параметри об'єкту">
+    
+    <VerticalStackLayout 
+    Padding="100"
+    Spacing="20"
+    BackgroundColor="#E8DFDF">
+
+        <Entry Placeholder="Назва"
+           x:Name="NameEntry" 
+           PlaceholderColor="#000000"
+           BackgroundColor="#FFFFFF"/>
+
+        <Entry Placeholder="Анотація"
+           x:Name="AnnotationEntry"
+           PlaceholderColor="#000000"
+           BackgroundColor="#FFFFFF"/>
+
+        <Entry Placeholder="Тип"
+           x:Name="TypeEntry"
+           PlaceholderColor="#000000"
+           BackgroundColor="#FFFFFF"/>
+
+        <Entry Placeholder="Версія"
+           x:Name="VersionEntry"
+           PlaceholderColor="#000000"
+           BackgroundColor="#FFFFFF"/>
+
+        <Entry Placeholder="Автор"
+           x:Name="AuthorEntry"
+           PlaceholderColor="#000000"
+           BackgroundColor="#FFFFFF"/>
+
+        <Entry Placeholder="Умови використання"
+           x:Name="TermsOfUsageEntry"
+           PlaceholderColor="#000000"
+           BackgroundColor="#FFFFFF"/>
+
+        <Entry Placeholder="Місце запису дистрибутиву" 
+           x:Name="DistributiveLocationEntry"
+           PlaceholderColor="#000000"
+           BackgroundColor="#FFFFFF"/>
+
+        <Button x:Name="button"
+            Text="Додати"
+            Clicked="BtnClicked"
+            BackgroundColor="#B29C9C" 
+            TextColor="#000000"
+            BorderColor="#000000"/>
+
+    </VerticalStackLayout>
+    
+</ContentPage>

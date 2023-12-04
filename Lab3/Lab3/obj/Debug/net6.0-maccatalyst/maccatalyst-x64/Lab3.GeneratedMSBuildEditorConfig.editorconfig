@@ -10,6 +10,12 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Lab3
 build_property.ProjectDir = C:\Users\Егор\Desktop\ООП\Lab 3\Lab3\Lab3\
 
+[C:/Users/Егор/Desktop/ООП/Lab 3/Lab3/Lab3/AddSoftwarePage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Lab3.AddSoftwarePage.xaml
+build_metadata.AdditionalFiles.TargetPath = AddSoftwarePage.xaml
+build_metadata.AdditionalFiles.RelativePath = AddSoftwarePage.xaml
+
 [C:/Users/Егор/Desktop/ООП/Lab 3/Lab3/Lab3/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Lab3.App.xaml
@@ -21,6 +27,12 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Lab3.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
+
+[C:/Users/Егор/Desktop/ООП/Lab 3/Lab3/Lab3/ChangeParameterPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Lab3.ChangeParameterPage.xaml
+build_metadata.AdditionalFiles.TargetPath = ChangeParameterPage.xaml
+build_metadata.AdditionalFiles.RelativePath = ChangeParameterPage.xaml
 
 [C:/Users/Егор/Desktop/ООП/Lab 3/Lab3/Lab3/InfoPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
